@@ -8,6 +8,7 @@ const person = (props) => {
             <p>{props.children}</p>
             <input type="text" onChange={props.inputHandler} value={props.name}/>
             <p onClick={props.clickEvent}> Click here to change the name - child stateless method call</p>
+            <p onClick={props.deleteEvent}> Click here to delet the element - child stateless method call</p>
         </div>
     )
 }

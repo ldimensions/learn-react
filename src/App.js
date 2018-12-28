@@ -6,7 +6,7 @@ class App extends Component {
 
 	state = {
 		Person: [
-		{ name: 'manu' }
+		{ id:'1', name: 'manu' }
 		],
 		showContent: false
 	}
@@ -24,6 +24,11 @@ class App extends Component {
 		const status = this.state.showContent;
 		this.setState({showContent: !status});
 	}
+	deleteHandler = (index) => {
+		const persons = [...this.state.Person];
+		persons.splice(index,1);
+		this.setState({Person:persons});
+	}
 
 
 
@@ -39,11 +44,13 @@ class App extends Component {
 		content = (
 			<div>
 				{
-					this.state.Person.map( person =>{
+					this.state.Person.map( (person,index) =>{
 						return <Person 
 									clickEvent={this.clickHandler.bind(this,'testing')} 
 									name={person.name}
 									inputHandler={this.nameChangedhandler}    
+									deleteEvent={() =>this.deleteHandler(index)}
+									key={person.id}
 								>   
 									Children Elements
 								</Person>
