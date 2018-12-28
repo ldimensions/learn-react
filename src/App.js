@@ -38,16 +38,22 @@ class App extends Component {
 	if(this.state.showContent){
 		content = (
 			<div>
-				<Person 
-					clickEvent={this.clickHandler.bind(this,'testing')} 
-					name={this.state.Person[0].name}
-					inputHandler={this.nameChangedhandler}              
-				>
-					Children Elements
-				</Person>   
+				{
+					this.state.Person.map( person =>{
+						return <Person 
+									clickEvent={this.clickHandler.bind(this,'testing')} 
+									name={person.name}
+									inputHandler={this.nameChangedhandler}    
+								>   
+									Children Elements
+								</Person>
+
+					})	
+				}			
 				<button onClick={this.clickHandler.bind(this,'manuuuuu')}> Click - binding method 1 with parameter</button> 
 				<button onClick={ () => this.clickHandler('manuuuuu111')}> Click - binding method 2 with parameter (not recommended)</button>  {/* This might re render*/}
-				<button onClick={this.clickHandler1} style={style}> Click without parameter</button>   						
+				<button onClick={this.clickHandler1} style={style}> Click without parameter</button>   
+										
 			</div>	
 		);
 	}
