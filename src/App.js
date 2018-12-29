@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
+import Aux from './hoc/Aux';
 
 class App extends Component {
 
@@ -42,7 +43,7 @@ class App extends Component {
 
 	if(this.state.showContent){
 		content = (
-			<div>
+			<Aux>
 				{
 					this.state.Person.map( (person,index) =>{
 						return <Person 
@@ -61,7 +62,7 @@ class App extends Component {
 				<button onClick={ () => this.clickHandler('manuuuuu111')}> Click - binding method 2 with parameter (not recommended)</button>  {/* This might re render*/}
 				<button onClick={this.clickHandler1} style={style}> Click without parameter</button>   
 										
-			</div>	
+			</Aux>	
 		);
 	}
 
